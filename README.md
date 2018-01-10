@@ -1,1 +1,2 @@
 # folderNamer
+The folderNamer program was made to go through each folder within your directory and rename them to remove any fluff at the beginning, specifically anything before the last underscore of your folder name.  Then it counts the number of subdirectories per subdirectory in your root folder.  It outputs the name of each subdirectory in a list, then the number of subdirectories per subdirectory, to a text file named list.txt.
