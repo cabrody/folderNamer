@@ -8,6 +8,9 @@ nextOne = 0
 int_list = []
 
 for dirName, subdirList, fileList in os.walk("."):
+	print(dirName)
+
+for dirName, subdirList, fileList in os.walk("."):
 	if dirName is '.':
 		dirList = subdirList
 		for sub in dirList:
@@ -18,7 +21,7 @@ for dirName, subdirList, fileList in os.walk("."):
 		pass
 	else:
 		try:
-			new_file = os.path.join(dirList[folderCount] + "/", dirName.split('_')[6])
+			new_file = os.path.join(dirList[folderCount] + "/", dirName.split('_')[4])
 			shutil.move(dirName, new_file)
 			numOfSubs += 1
 		except IndexError:
