@@ -8,9 +8,6 @@ nextOne = 0
 int_list = []
 
 for dirName, subdirList, fileList in os.walk("."):
-	print(dirName)
-
-for dirName, subdirList, fileList in os.walk("."):
 	if dirName is '.':
 		dirList = subdirList
 		for sub in dirList:
