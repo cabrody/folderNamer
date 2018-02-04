@@ -17,20 +17,22 @@ for dirName, subdirList, fileList in os.walk("."):
 			myfile.write('\r\n')
 		pass
 	else:
-		if dirName[2:] in dirList:
-			folderCount += 1
-			if(nextOne != 0):
-				int_list.append(numOfSubs)
-				numOfSubs = 0
-			else:
-				nextOne = 1;
-		else:
+		try:
+			new_file = os.path.join(dirList[folderCount] + "/", dirName.split('_')[6])
+			shutil.move(dirName, new_file)
 			numOfSubs += 1
-			try:
-				new_file = os.path.join(dirList[folderCount] + "/", dirName.split('_')[6])
-				shutil.move(dirName, new_file)
-			except IndexError:
-				pass	
+		except IndexError:
+                        if dirName[2:] in dirList:
+			    folderCount += 1
+		            if nextOne == 0:
+			        nextOne = 1
+			       	pass
+		            else:
+				int_list.append(numOfSubs)
+			    numOfSubs = 0
+			    pass
+                        else:
+                            numOfSubs += 1
 
 int_list.append(numOfSubs)
 for num in int_list:
